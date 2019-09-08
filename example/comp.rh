@@ -1,0 +1,91 @@
+
+mod symbol {
+
+    use symbol;
+
+    sig blah<a,b,c> {
+        abstract z;
+        fun h(sym : a) -> b;
+        fun g(sym : z) -> z;
+    }
+
+    impl blah<a,b,c> for blarg {
+        abstract z = number;
+        fun h(sym : a) -> b {
+            return some_b;
+        }
+        fun g(sym : number) -> number {
+            return 5.0;
+        }
+    }
+
+    fun heap( y : blah<number, number, number> ) -> y.z {
+        y.h( 5.0 );
+        return y.g(    );
+    }
+
+    struct w<u> {
+        a : u,
+        b : string,
+    }
+
+    fun stack() {
+        let y : list<number> = [1,2,3];
+        let z : dict<number, w<number>> = dict.new();
+
+        set y = [5];
+        set z{5} = w<number> { a : 5, b : "string" };
+        set z{5}.b = "other";
+
+        let a = true;
+      
+        a.eq( b );
+        a.and( c );
+        a.or( e );
+        a.xor( f );
+        a.not();
+        a.neq( d );
+    }
+
+    fun symbol<t_symbol>( a_sym : a_type, b_sym : b_type ) -> ret_type {
+
+        //
+        /* */
+
+        let r : blah<number, number, number> = blarg;
+
+        let q : r.z = heap( r );
+
+        let t = w<number> { a : 5.0, b : "string" };
+
+        fun z(y) {
+            return y.plus(1);
+        }
+
+        let a = b;
+        let c : d = e;
+        let f : x -> y = <%1.eq( %1 )>;
+
+        if true {
+
+        } 
+        elseif false {
+
+        }
+        else {
+
+        }
+
+        for x in y {
+
+        }
+
+        while true {
+            continue;
+            break;
+        }
+        return "string";
+    }
+
+
+}
