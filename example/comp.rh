@@ -45,6 +45,8 @@ mod symbol {
         a.xor( f );
         a.not();
         a.neq( d );
+
+        let w = try x;
     }
 
     fun symbol<t_symbol>( a_sym : a_type, b_sym : b_type ) -> ret_type {
