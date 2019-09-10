@@ -7,25 +7,27 @@ module Ast
 
      ) where
 
-data Type =
+data RheaType =
     TBool
     | TNumber
     | TString
     | TGeneric 
     | TStruct 
     | TAbstract  
-    | TDict Type Type 
-    | TList Type
+    | TDict RheaType RheaType 
+    | TList RheaType
+    | TFunc [RheaType] RheaType
 
 
-data Expr (a::Type) where 
+data Expr (a::RheaType) where 
     TrueLit :: Expr TBool
     FalseLit :: Expr TBool
     NumberLit :: Double -> Expr TNumber 
     StringLit :: String -> Expr TString
-    Symbol :: String -> Expr a
-    Dot :: Expr TStruct -> String -> Expr a
+    Variable :: String -> Expr a
+    StructProj :: Expr TStruct -> String -> Expr a
     IndexKey :: Expr (TDict a b) -> Expr a -> Expr b
+    FuncCall :: Expr (TFunc input output) -> [Expr a] -> Expr output
     And :: Expr TBool -> Expr TBool -> Expr TBool
     Or :: Expr TBool -> Expr TBool -> Expr TBool
     Xor :: Expr TBool -> Expr TBool -> Expr TBool
